@@ -19,6 +19,8 @@
     canvas {
       display: block;
       position: absolute;
+      z-index: 1; /* Add this */
+
       top: 0;
       left: 0;
     }
@@ -26,6 +28,8 @@
       position: absolute;
       top: 20px;
       left: 0;
+      z-index: 2; /* Add this */
+
       right: 0;
       display: flex;
       flex-direction: column;
@@ -83,6 +87,8 @@
       left: 50%;
       transform: translateX(-50%);
       background: rgba(0, 0, 0, 0.6);
+      z-index: 2; /* Add this */
+
       padding: 10px 20px;
       border-radius: 30px;
       display: flex;
@@ -122,7 +128,7 @@
 </head>
 <body>
   <div class="ui-container">
-    <div id="counter" class="counter-display">🎇 Bursts: <span id="burst-count">0</span></div>
+    <div class="instruction">Click anywhere to launch fireworks!</div>
 
     <div class="controls">
       <button id="auto-btn" class="button">Auto Launch</button>
@@ -594,8 +600,9 @@
         lastAutoLaunch = Date.now();
         
         // Vary the interval for more natural effect
-        autoLaunchInterval = 1000 + Math.random() * 3000;
+        autoLaunchInterval = 600 + Math.random() * 600;
       }
+      
       
       requestAnimationFrame(update);
     }
